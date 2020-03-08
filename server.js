@@ -16,8 +16,9 @@ const PORT = process.env.PORT
 
 //Router 
 const devUser = require('./controllers/devUser.js')
-const sessionsController = require('./controllers/session.js')
+const sessionsController = require('./controllers/sessions.js')
 const pricingController = require('./controllers/pricing.js')
+const pageRoute = require('./controllers/profilehomepage.js')
 
 //se middleware
 app.use(methodOverride('_method'))
@@ -33,6 +34,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
+app.use('/profilepage', pageRoute)
 //bootstrap
 
 
