@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/cover.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
+  <%- include("./partials/head.ejs") %>
     <title>DevMeet Index Page</title>
+    <link rel="stylesheet" href="/css/cover.css">
 </head>
 <body>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -17,8 +12,8 @@
             <h3 class="masthead-brand">Link-Up</h3>
             <nav class="nav nav-masthead justify-content-center">
               <a class="nav-link active" href="#">Home</a>
-              <a class="nav-link" href="#">Login</a>
-              <a class="nav-link" href="#">Signup</a>
+              <a class="nav-link" href="/sessions/new">Login</a>
+              <a class="nav-link" href="/devusers/new">Signup</a>
             </nav>
           </div>
         </header>

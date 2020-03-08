@@ -3,12 +3,21 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const morgan = require("morgan");
 const  errorHandler = require("errorhandler");
+const session = require('express-session')
 require('dotenv').config()
 const app = express()
+
+
 
 //.emv config
 const PORT = process.env.PORT
 //const mongoURI = process.env.MONGO_URI
+
+
+//Router 
+const devUser = require('./controllers/devUser.js')
+const sessionsController = require('./controllers/session.js')
+const pricingController = require('./controllers/pricing.js')
 
 //se middleware
 app.use(methodOverride('_method'))
@@ -16,13 +25,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan("tiny"))
 app.use(errorHandler());
 app.use (express.static("public"))
-//app.use(express.static(__dirname + '/node_modules/bootstrap/dist/js'));
-
+app.use('/devusers', devUser)
+app.use('/sessions', sessionsController)
+app.use('/pricing', pricingController)
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
 //bootstrap
-app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
-app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-app.use('/scss', express.static(__dirname + '/node_modules/bootstrap/scss'));;
+
 
 
 //database connection
@@ -34,15 +46,19 @@ mongoose.connection.once('open', () => {
   console.log('connected to mongo')
 })
 
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////
 //ROUTE
 app.get('/', (req, res) => {
-     res.render('index.ejs')
+     res.redirect('/devusers')
 });
 
-app.get('/newprofile', (req, res) => {
-  res.render('./users/newuserprofile.ejs')
-})
+
 
 
 ///views
