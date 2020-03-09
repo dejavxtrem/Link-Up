@@ -20,6 +20,13 @@ const sessionsController = require('./controllers/sessions.js')
 const pricingController = require('./controllers/pricing.js')
 const pageRoute = require('./controllers/profilehomepage.js')
 
+
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false
+}))
+
 //se middleware
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
@@ -29,12 +36,9 @@ app.use (express.static("public"))
 app.use('/devusers', devUser)
 app.use('/sessions', sessionsController)
 app.use('/pricing', pricingController)
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}))
 app.use('/profilepage', pageRoute)
+
+
 //bootstrap
 
 

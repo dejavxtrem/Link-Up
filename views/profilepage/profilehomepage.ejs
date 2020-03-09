@@ -23,7 +23,7 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h5>
-                                    Kshiti Ghelani
+                                   Welcome, <%=currentUser.firstname %> <%=currentUser.lastname %>
                                 </h5>
                                 <h6>
                                     Web Developer and Designer
@@ -66,7 +66,7 @@
                                             <label>User Id</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Kshiti123</p>
+                                            <p><%=currentUser.username %></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -74,7 +74,7 @@
                                             <label>Name</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Kshiti Ghelani</p>
+                                            <p><%=currentUser.firstname %> <%=currentUser.lastname %></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -82,7 +82,7 @@
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>kshitighelani@gmail.com</p>
+                                            <p><%=currentUser.email %></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -95,10 +95,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Profession</label>
-                                        </div>
+                                            <label>Bootcamp</label>
+                                        </div> 
                                         <div class="col-md-6">
-                                            <p>Web Developer and Designer</p>
+                                            <p><%=currentUser.codebootcamp %></p>
                                         </div>
                                     </div>
                         </div>

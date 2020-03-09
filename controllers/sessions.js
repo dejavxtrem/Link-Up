@@ -10,12 +10,12 @@ sessions.get('/new', (req, res) => {
 sessions.post('/', (req, res) => {
     profile.findOne({username: req.body.username}, (err, foundUser) => {
         if (req.body.password == foundUser.password) {
-            console.log(req.body)
+            //console.log(req.body)
             //const credentials = {username: foundUser.username, password: foundUser.password}
             req.session.currentUser = foundUser
-            res.redirect('/')
+            res.redirect('/profilepage/page')
         } else {
-            res.send('<a href="/">wrong password</a>')
+            res.redirect('/devusers/new')
         }
     })
 })
