@@ -1,6 +1,7 @@
 const express = require('express')
 const devUser = express.Router()
 const profile = require('../models/profile.js')
+const bcrypt = require('bcrypt')
 
 devUser.get('/', (req, res) => {
   res.render('index.ejs');
@@ -15,6 +16,7 @@ devUser.get('/new', (req, res) => {
 
 
 devUser.post('/', (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)) 
   profile.create(req.body, (err, profileUser) => {
       if (err) {
         res.send(err)

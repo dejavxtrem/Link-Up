@@ -6,4 +6,6 @@ pricing.get('/price', (req, res) => {
     res.render('pricing/pricing.ejs')
   })
 
+  
+
   module.exports = pricing

@@ -9,7 +9,8 @@
 </head>
 <body>
     <div class="container emp-profile">
-        <form method="post">
+        <% if(currentUser) { %>
+        <form action="/sessions?_method=DELETE" method="POST">   
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
@@ -41,6 +42,9 @@
                 </div>
                 <div class="col-md-2">
                     <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                    
+                    <input type="submit" value="Logout" class="profile-edit-btn"/>
+                    
                 </div>
             </div>
             <div class="row">
@@ -153,7 +157,9 @@
                     </div>
                 </div>
             </div>
-        </form>           
+        </form> 
+        
+        <% } %>
     </div>
 </body>
 </html>
