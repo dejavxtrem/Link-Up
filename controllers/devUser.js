@@ -3,6 +3,9 @@ const devUser = express.Router()
 const profile = require('../models/profile.js')
 const bcrypt = require('bcrypt')
 
+
+
+
 devUser.get('/', (req, res) => {
   res.render('index.ejs');
 })
@@ -22,8 +25,11 @@ devUser.post('/', (req, res) => {
         res.send(err)
       }
       console.log(profileUser)
-      res.redirect('/pricing/price')
+      res.redirect('/sessions/new')
   })
+
+
+
 })
 
 module.exports = devUser;
