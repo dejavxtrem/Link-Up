@@ -11,19 +11,9 @@
     <title>Document</title>
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("../partials/head.ejs") %>
-    <link rel="stylesheet" href="/css/profilepage.css">
-    <title>Document</title>
-</head>
-<body>
     <div class="container emp-profile">
         <% if(currentUser) { %>
-        <form action="/profilepage/<%=currentUser.id%>?_method=PUT" method="POST">   
+        <form >   
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
@@ -174,7 +164,5 @@
         
         <% } %>
     </div>
-</body>
-</html>
 </body>
 </html>

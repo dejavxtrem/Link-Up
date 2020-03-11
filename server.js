@@ -11,7 +11,7 @@ const app = express()
 
 //.emv config
 const PORT = process.env.PORT
-//const mongoURI = process.env.MONGO_URI
+const mongoURI = process.env.MONGODB_URI
 
 
 //Router 
@@ -44,7 +44,7 @@ app.use('/profilepage', pageRoute)
 
 
 //database connection
-mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds145178.mlab.com:45178/devmeetprofile`, {
+mongoose.connect( mongoURI , {
     useNewUrlParser: true ,
     useUnifiedTopology: true
 })

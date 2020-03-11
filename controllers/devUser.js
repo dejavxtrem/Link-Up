@@ -20,6 +20,7 @@ devUser.get('/new', (req, res) => {
 
 devUser.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)) 
+  //req.body.username
   profile.create(req.body, (err, profileUser) => {
       if (err) {
         res.send(err)
@@ -27,8 +28,6 @@ devUser.post('/', (req, res) => {
       console.log(profileUser)
       res.redirect('/sessions/new')
   })
-
-
 
 })
 

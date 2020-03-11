@@ -10,7 +10,8 @@
 <body>
     <div class="container emp-profile">
         <% if(currentUser) { %>
-        <form action="/sessions?_method=DELETE" method="POST">   
+
+      <!--    <form action="/sessions?_method=DELETE" method="POST">   -->
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
@@ -40,10 +41,58 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    
-                    <input type="submit" value="Logout" class="profile-edit-btn"/>
+                        
+
+                    <!-- Modal -->
+                 <!-- Button trigger modal -->
+    <button type="submit" class="profile-edit-btn" name="btnAddMore"  data-toggle="modal" data-target="#exampleModalCenter">Edit Profile </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Update Personal Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <form action="/profilepage/<%=currentUser._id%>?_method=PUT" method="POST">
+                <% console.log(currentUser._id) %>
+                User ID: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.username%>" name="username"  ><br />
+                Password: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.password%>" name="password"   ><br />
+                First Name: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.firstname%>" name="firstname"  ><br />
+                Last Name: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.lastname%>" name="lastname"   ><br />
+                Email: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.email%>" name="email"   ><br />
+                zipcode: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.zipcode%>" name="zipcode"   ><br />
+                Bootcamp: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.codebootcamp%>" name="codebootcamp"  ><br />
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </form>           
+        </div>
+        <div class="modal-footer">
+           <!---<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <!----<button type="button" class="btn btn-primary">Save changes</button> --->
+        </div>
+      </div>
+    </div>
+  </div>   
+
+ <!-- Modal -->
+
+
+
+
+
+
+
+
+              
+  <input type="submit" value="Logout" class="profile-edit-btn"/>
                     
                 </div>
             </div>
@@ -105,6 +154,15 @@
                                             <p><%=currentUser.codebootcamp %></p>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Zipcode</label>
+                                        </div> 
+                                        <div class="col-md-6">
+                                            <p><%=currentUser.zipcode %></p>
+                                        </div>
+                                    </div>
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <div class="row">
@@ -157,7 +215,7 @@
                     </div>
                 </div>
             </div>
-        </form> 
+       <!--  </form> -->
         
         <% } %>
     </div>
