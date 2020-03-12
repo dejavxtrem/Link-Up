@@ -1,16 +1,16 @@
 const express = require('express')
 const pageRouter = express.Router()
-const profile = require('../models/profile.js')
-
+const Profile = require('../models/profile.js')
 
 
 
 
 pageRouter.get('/page', (req, res) => {
     if (req.session.currentUser) {
-        
-        res.render('profilepage/profilehomepage.ejs' , {
-            currentUser: req.session.currentUser
+        Profile.findById(req.session.currentUser._id, (err, foundUser) => {
+            res.render('profilepage/profilehomepage.ejs' , {
+                currentUser: foundUser
+            })
         })
     } else {
         res.redirect('/devusers/new')
@@ -26,20 +26,28 @@ pageRouter.get('/page', (req, res) => {
 //         })
 //     })
 // });
-
-pageRouter.put('/:_id', (req, res) => {
-    profile.findByIdAndUpdate(
+//EDIT
+pageRouter.put('/:id', (req, res) => {
+    Profile.findByIdAndUpdate(
         req.params.id, 
         req.body,
          {new : true}, 
          (err, product) => {
-        if (err) {console.log(err) } 
-        res.render('profilepage/profilehomepage.ejs', {
-            currentUser: req.session.currentUser
-        })
+            if (err) {console.log(err) } 
+            //console.log(product)
+            res.redirect('/profilepage/page')
+         }
+    )
+})
+//delete
+pageRouter.delete('/:id', (req, res) => { 
+    //console.log(ID)
+    Profile.findByIdAndRemove(req.session.currentUser._id, (err, loginUser) => {
+       //loginUser = req.session.currentUser._id
+        if (err) {console.log(err)}
+        res.redirect('/devusers')
     })
 })
-
 
 
   module.exports = pageRouter

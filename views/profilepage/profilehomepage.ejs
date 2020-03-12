@@ -64,18 +64,19 @@
             <form action="/profilepage/<%=currentUser._id%>?_method=PUT" method="POST">
                 <% console.log(currentUser._id) %>
                 User ID: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.username%>" name="username"  ><br />
-                Password: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.password%>" name="password"   ><br />
                 First Name: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.firstname%>" name="firstname"  ><br />
                 Last Name: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.lastname%>" name="lastname"   ><br />
                 Email: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.email%>" name="email"   ><br />
                 zipcode: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.zipcode%>" name="zipcode"   ><br />
                 Bootcamp: <input type="text" class="form-control" id="firstName" placeholder="" value="<%=currentUser.codebootcamp%>" name="codebootcamp"  ><br />
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
-              </form>           
+              </form>         
         </div>
         <div class="modal-footer">
-           <!---<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <form action="/profilepage/<%=currentUser._id%>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-secondary" >Delete Account</button>
+            </form>
+           
           <!----<button type="button" class="btn btn-primary">Save changes</button> --->
         </div>
       </div>

@@ -20,7 +20,7 @@ devUser.get('/new', (req, res) => {
 
 devUser.post('/', (req, res) => {
   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)) 
-  //req.body.username
+  req.body.username = req.body.username.toLowerCase();
   profile.create(req.body, (err, profileUser) => {
       if (err) {
         res.send(err)
