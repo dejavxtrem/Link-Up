@@ -1,5 +1,8 @@
 .container {
     max-width: 960px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Playfair Display', serif;
   }
   
   .lh-condensed { line-height: 1.25; }

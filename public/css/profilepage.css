@@ -1,5 +1,7 @@
 body{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    font-family: 'Lato', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 .emp-profile{
     padding: 3%;
@@ -45,6 +47,7 @@ body{
     font-weight: 600;
     color: #6c757d;
     cursor: pointer;
+    margin-bottom: 1em;
 }
 .proile-rating{
     font-size: 12px;

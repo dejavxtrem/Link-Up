@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/head.ejs") %>
+    <link rel="stylesheet" href="/css/searchresult.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="search">Searchresult</h1>
+        <div class="row">
+        <% for(let i =0; i < zipresult.length; i++){ %>
+              <div class="col-md-4" class="d-flex justify-content-around align-items-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="profile Picture">
+                    <div class="card-body">
+                        <h5><%=zipresult[i].firstname %> <%=zipresult[i].lastname %>  </h5>
+                    </div>
+                <div class="card-body">
+
+                    <h5>Profile Details:</h5>
+                    <p>CodeBootCamp:<%=zipresult[i].codebootcamp %></p>
+                    <p>Email: <%=zipresult[i].email %> </p>
+                    <p>Country: <%=zipresult[i].country %></p>
+                    <p>City: <%=zipresult[i].city %></p>
+                    <p>State: <%=zipresult[i].state %></p>
+                    <p>zipcode: <%=zipresult[i].zipcode %></p>
+                    <p>Skills: <%=zipresult[i].programinglanguage %></p>
+                    <a href="/devusers" class="card-link">Back to Home</a>
+                </div>
+                </div>
+              </div>
+            <% } %>
+          </div>
+
+
+</body>
+</html>

@@ -19,6 +19,7 @@ const devUser = require('./controllers/devUser.js')
 const sessionsController = require('./controllers/sessions.js')
 const pricingController = require('./controllers/pricing.js')
 const pageRoute = require('./controllers/profilehomepage.js')
+const search = require('./controllers/searchresult.js')
 
 
 app.use(session({
@@ -37,6 +38,7 @@ app.use('/devusers', devUser)
 app.use('/sessions', sessionsController)
 app.use('/pricing', pricingController)
 app.use('/profilepage', pageRoute)
+app.use('/search', search)
 
 
 //bootstrap
